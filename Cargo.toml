@@ -11,4 +11,17 @@ serde = "1.0.136"
 serde_json = "1.0.79"
 wasm-bindgen = "0.2.80"
 web-sys = { version = "0.3.57", features = ["HtmlInputElement"] }
+wee_alloc = "0.4.5"
 yew = "0.19.3"
+
+[profile.release]
+# less code to include into binary
+panic = 'abort'
+# optimization over all codebase ( better optimization, slower build )
+codegen-units = 1
+# optimization for size ( more aggressive )
+# opt-level = 'z'
+# optimization for size
+opt-level = 's'
+# link time optimization using using whole-program analysis
+lto = true
