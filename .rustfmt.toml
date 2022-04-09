@@ -1,0 +1,17 @@
+max_width = 80
+newline_style = "Unix"
+use_field_init_shorthand = true
+use_try_shorthand = true
+# unstable_features = true
+# report_fixme = "Always"
+# report_todo = "Always"
+# reorder_impl_items = true
+# format_macro_bodies = false
+# format_strings = true
+# wrap_comments = true
+# comment_width = 65
+# normalize_comments = true
+# empty_item_single_line = false
+# merge_imports = true
+# enum_discrim_align_threshold = 30
+# struct_field_align_threshold = 20

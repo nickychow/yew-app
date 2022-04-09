@@ -3,7 +3,7 @@ use yew::prelude::*;
 #[derive(PartialEq, Properties)]
 pub struct Props {
     pub label: String,
-    pub class: Classes,
+    pub classes: Classes,
     pub onclick: Callback<MouseEvent>,
 }
 
@@ -11,7 +11,7 @@ pub struct Props {
 pub fn submit_button(props: &Props) -> Html {
     let Props {
         label,
-        class,
+        classes,
         onclick,
     } = props;
 
@@ -21,7 +21,7 @@ pub fn submit_button(props: &Props) -> Html {
     });
 
     html! {
-        <button class={class.clone()} onclick={button_onclick}>
+        <button class={classes.clone()} onclick={button_onclick}>
             { label }
         </button>
     }

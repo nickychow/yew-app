@@ -40,16 +40,20 @@ pub fn pokemon_card() -> Html {
             let mut rng = rand::thread_rng();
             let id: i32 = rng.gen_range(1..=100);
 
-            let response = reqwest::get(format!("https://pokeapi.co/api/v2/pokemon/{}", id))
-                .await
-                .expect("Failed to fetch Pokemon!");
+            let response = reqwest::get(format!(
+                "https://pokeapi.co/api/v2/pokemon/{}",
+                id
+            ))
+            .await
+            .expect("Failed to fetch Pokemon!");
 
             let content = response
                 .text()
                 .await
                 .expect("Failed to read response body!");
 
-            let v: Value = serde_json::from_str(&content).expect("Failed to parse JSON!");
+            let v: Value =
+                serde_json::from_str(&content).expect("Failed to parse JSON!");
 
             let name = v["name"].as_str().unwrap();
             let image_src = v["sprites"]["front_default"].as_str().unwrap();
@@ -102,36 +106,6 @@ fn view_pokemon(props: &ViewPokemonProps) -> Html {
         guess_state,
     } = props;
 
-    let pokeman = match pokemon {
-        Some(pokemon) => pokemon,
-        None => return html! {},
-    };
-
-    let input_ref = NodeRef::default();
-    let input_ref_outer = input_ref.clone();
-
-    let name = pokeman.name.clone();
-
-    let onclick = {
-        let guess_state = guess_state.clone();
-        Callback::from(move |_: MouseEvent| {
-            let input = input_ref
-                .cast::<HtmlInputElement>()
-                .expect("Failed to cast input");
-            let guess = input.value().to_lowercase();
-
-            log!(&guess);
-
-            if guess == name {
-                // input.set_class_name("bg-green-500");
-                guess_state.set(Some(Guess::Correct));
-            } else {
-                // input.set_class_name("bg-red-500");
-                guess_state.set(Some(Guess::Incorrect));
-            }
-        })
-    };
-
     let input_classes = {
         classes!(vec![
             "shadow",
@@ -162,6 +136,38 @@ fn view_pokemon(props: &ViewPokemonProps) -> Html {
             "hover:border-blue-500",
             "rounded"
         ])
+    };
+
+    let pokeman = match pokemon {
+        Some(pokemon) => pokemon,
+        None => return html! {},
+    };
+
+    let input_ref = NodeRef::default();
+    let input_ref_outer = input_ref.clone();
+
+    let name = pokeman.name.clone();
+
+    let onclick = {
+        let guess_state = guess_state.clone();
+        Callback::from(move |_: MouseEvent| {
+            let input = input_ref
+                .cast::<HtmlInputElement>()
+                .expect("Failed to cast input");
+            let guess = input.value().to_lowercase();
+
+            log!(&guess);
+
+            if guess == name {
+                // input.set_class_name("bg-green-500");
+                // input_classes.push("bg-green-500");
+                guess_state.set(Some(Guess::Correct));
+            } else {
+                // input.set_class_name("bg-red-500");
+                // input_classes.push("bg-red-500");
+                guess_state.set(Some(Guess::Incorrect));
+            }
+        })
     };
 
     html! {

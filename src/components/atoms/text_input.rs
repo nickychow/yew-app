@@ -6,7 +6,7 @@ use yew::prelude::*;
 #[derive(PartialEq, Properties)]
 pub struct Props {
     pub name: String,
-    pub class: Classes,
+    pub classes: Classes,
     pub handle_onchange: Callback<String>,
 }
 
@@ -14,7 +14,7 @@ pub struct Props {
 pub fn text_input(props: &Props) -> Html {
     let Props {
         name,
-        class,
+        classes,
         handle_onchange,
     } = props;
 
@@ -28,6 +28,6 @@ pub fn text_input(props: &Props) -> Html {
         handle_onchange.emit(value);
     });
     html! {
-        <input type="text" class={class.clone()} name={name.clone()} onchange={onchange} />
+        <input type="text" class={classes.clone()} name={name.clone()} onchange={onchange} />
     }
 }

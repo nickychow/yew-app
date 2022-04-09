@@ -91,13 +91,13 @@ pub fn hello_form() -> Html {
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="nameInput">
                         { "Name" }
                     </label>
-                    <TextInput name="name" class={input_classes} handle_onchange={name_changed} />
-                    <SubmitButton label="Say Hello" class={button_classes} onclick={button_clicked}/>
+                    <TextInput name="name" classes={input_classes} handle_onchange={name_changed} />
+                    <SubmitButton label="Say Hello" classes={button_classes} onclick={button_clicked}/>
                 </div>
 
             </section>
 
-            <section id="messageDisplay" class="col max-w-sm bg-white shadow-md rounded-lg px-8 pt-6 pb-4 mb-4">
+            <section id="messageDisplay" classes="col max-w-sm bg-white shadow-md rounded-lg px-8 pt-6 pb-4 mb-4">
                 <HelloP name={state.name.clone()} />
                 <p>{ format!("Button has been clicked {} times", &state.count) }</p>
             </section>
