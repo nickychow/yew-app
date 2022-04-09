@@ -5,6 +5,7 @@ use yew::prelude::*;
 mod components;
 
 use crate::components::molecules::HelloForm;
+use crate::components::molecules::PokemonCard;
 
 #[function_component(App)]
 pub fn app() -> Html {
@@ -19,6 +20,7 @@ pub fn app() -> Html {
 
     html! {
        <main class="bg-gray-100 h-screen flex flex-col justify-center items-center">
+            <PokemonCard/>
             <HelloForm/>
        </main>
     }
