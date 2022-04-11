@@ -3,14 +3,14 @@ use yew::prelude::*;
 #[function_component(Footer)]
 pub fn footer() -> Html {
     html! {
-        <footer class="bg-white border-t-2 border-gray-100">
-            <div class="container mx-auto px-32 py-4">
+        <footer class="bottom-0 bg-white border-t-2 border-gray-100">
+            <div class="container mx-auto px-4 py-4 max-w-screen-lg">
                 <div class=" md:flex items-center text-gray-500 w-full mx-auto">
                     <div class="flex-1">{"© 2022 nickchow.info"}</div>
 
                     <div class="flex-1 md:text-center">
                         <code class="font-mono text-sm">
-                                    {"Coded with ♥️"}
+                                    {"Coded with ❤️"}
                                 </code>
                     </div>
 

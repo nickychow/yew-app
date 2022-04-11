@@ -1,3 +1,8 @@
 {
+  "workbench.colorTheme": "Halcyon",
+  "workbench.iconTheme": "vs-seti",
+  "editor.semanticTokenColorCustomizations": {
+  "enabled": true
+  }
   // "rust-analyzer.checkOnSave.overrideCommand": ["cargo", "+nightly", "clippy"]
 }

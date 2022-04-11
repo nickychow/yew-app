@@ -4,8 +4,6 @@ use serde_json::Value;
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
 
-use std::ops::Deref;
-
 #[derive(Debug, PartialEq, Default, Clone)]
 struct Pokemon {
     id: i32,
@@ -85,9 +83,9 @@ pub fn pokemon_card() -> Html {
     };
 
     html! {
-        <section id="messageDisplay" class="col max-w-sm bg-white shadow-md rounded-lg px-8 pt-6 pb-4 mb-4 text-center">
+        <section class="mx-auto max-w-sm bg-white shadow-md rounded-lg px-8 pt-6 pb-4 mb-4 text-center">
             <button {onclick} class={button_classes}>{ "Load Pokemon" }</button>
-            <ViewPokemon pokemon={pokemon_state_outer.deref().clone()} guess_state={guess_state_outer.clone()} />
+            <ViewPokemon pokemon={(*pokemon_state_outer).clone()} guess_state={guess_state_outer.clone()} />
         </section>
 
     }
@@ -150,6 +148,7 @@ fn view_pokemon(props: &ViewPokemonProps) -> Html {
 
     let onclick = {
         let guess_state = guess_state.clone();
+
         Callback::from(move |_: MouseEvent| {
             let input = input_ref
                 .cast::<HtmlInputElement>()
@@ -172,10 +171,10 @@ fn view_pokemon(props: &ViewPokemonProps) -> Html {
 
     html! {
         <div>
-            <img src={pokeman.image_src.clone()}/>
+            <img class="mx-auto" src={pokeman.image_src.clone()}/>
             <input ref={input_ref_outer.clone()} class={input_classes} type="text"/>
             <button {onclick} class={button_classes}>{ "Click me" }</button>
-            <ViewGuess guess={guess_state.deref().clone()}/>
+            <ViewGuess guess={(**guess_state).clone()}/>
         </div>
     }
 }

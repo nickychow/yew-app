@@ -1,9 +1,4 @@
-use std::ops::Deref;
-
-use gloo::console::log;
-// use rand::Rng;
-// use serde_json::Value;
-// use web_sys::HtmlInputElement;
+// use gloo::console::log;
 use yew::prelude::*;
 
 use crate::components::atoms::HelloP;
@@ -31,8 +26,9 @@ pub fn hello_form() -> Html {
 
     let name_changed = {
         let state = state.clone();
+
         Callback::from(move |name| {
-            let mut data = state.deref().clone();
+            let mut data = (*state).clone();
             data.name = name;
             state.set(data);
         })
@@ -41,12 +37,12 @@ pub fn hello_form() -> Html {
     let button_clicked = {
         let state = state.clone();
 
-        Callback::from(move |e: MouseEvent| {
-            let mut data = state.deref().clone();
+        Callback::from(move |_e: MouseEvent| {
+            let mut data = (*state).clone();
             data.count += 1;
             state.set(data);
 
-            log!("{}", e);
+            // log!("{}", e);
         })
     };
 
@@ -84,11 +80,11 @@ pub fn hello_form() -> Html {
 
     html! {
         <>
-            <section class="col max-w-sm bg-white shadow-md rounded-lg px-8 pt-6 pb-4 mb-4">
+            <section class="mx-auto max-w-sm bg-white shadow-md rounded-lg px-8 pt-6 pb-4 mb-4">
 
                 <h1 class="title font-bold text-6xl text-center text-gray-800">{ "Hello Rust WASM" }</h1>
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nameInput">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">
                         { "Name" }
                     </label>
                     <TextInput name="name" classes={input_classes} handle_onchange={name_changed} />
@@ -97,7 +93,7 @@ pub fn hello_form() -> Html {
 
             </section>
 
-            <section id="messageDisplay" classes="col max-w-sm bg-white shadow-md rounded-lg px-8 pt-6 pb-4 mb-4">
+            <section class="mx-auto max-w-sm bg-white shadow-md rounded-lg px-8 pt-6 pb-4">
                 <HelloP name={state.name.clone()} />
                 <p>{ format!("Button has been clicked {} times", &state.count) }</p>
             </section>

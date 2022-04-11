@@ -4,7 +4,7 @@ use yew::prelude::*;
 pub fn header() -> Html {
     html! {
         <header class="bg-white border-b-2 border-gray-100">
-            <div class="container mx-auto px-32 py-3">
+            <div class="container mx-auto px-4 py-3 max-w-screen-lg">
                 <div class="flex font-heading items-center justify-between">
                     <a to="/" class="flex items-center text-gray-600 hover:text-indigo-600">
                         <svg class="h-8 w-8 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
