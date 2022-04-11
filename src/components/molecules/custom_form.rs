@@ -3,30 +3,27 @@
 use yew::prelude::*;
 
 use crate::components::atoms::LabelInput;
-
-#[derive(PartialEq, Clone, Default)]
-pub struct Data {
-    pub username: String,
-    pub favorite_language: String,
-}
+use crate::pages::User;
 
 #[derive(PartialEq, Properties)]
 pub struct Props {
-    pub onsubmit: Callback<Data>,
+    pub onsubmit: Callback<User>,
 }
 
 #[function_component(CustomForm)]
 pub fn custom_form(props: &Props) -> Html {
-    let state = use_state(Data::default);
+    let state = use_state(User::default);
+    let context = use_context::<User>();
+    let user_context = context.unwrap_or_default();
     let Props { onsubmit } = props;
 
     let username_changed = {
         let state = state.clone();
 
         Callback::from(move |username| {
-            let mut data = (*state).clone();
-            data.username = username;
-            state.set(data);
+            let mut user = (*state).clone();
+            user.username = username;
+            state.set(user);
         })
     };
 
@@ -34,9 +31,9 @@ pub fn custom_form(props: &Props) -> Html {
         let state = state.clone();
 
         Callback::from(move |favorite_language| {
-            let mut data = (*state).clone();
-            data.favorite_language = favorite_language;
-            state.set(data);
+            let mut user = (*state).clone();
+            user.favorite_language = favorite_language;
+            state.set(user);
         })
     };
 
@@ -48,8 +45,8 @@ pub fn custom_form(props: &Props) -> Html {
             // Prevent the form from submitting
             event.prevent_default();
 
-            let data = (*state).clone();
-            onsubmit.emit(data);
+            let user = (*state).clone();
+            onsubmit.emit(user);
         })
     };
 
@@ -74,6 +71,8 @@ pub fn custom_form(props: &Props) -> Html {
             <LabelInput name="username" onchange={username_changed} />
             <LabelInput name="favorite_language" placeholder="Rust" onchange={language_changed} />
             <button class={button_classes} >{"Submit"}</button>
+            <p>{"Username: "}{user_context.username}</p>
+            <p>{"Language: "}{user_context.favorite_language}</p>
         </form>
     }
 }
