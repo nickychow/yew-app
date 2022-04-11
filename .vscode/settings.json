@@ -1,8 +1,123 @@
 {
   "workbench.colorTheme": "Halcyon",
   "workbench.iconTheme": "vs-seti",
+  "editor.tokenColorCustomizations": {
+    "[Halcyon]": {
+      "textMateRules": [
+        // {
+        //   "scope": "entity.name.namespace",
+        //   "settings": {
+        //     "foreground": "#ef6b73",
+        //     "fontStyle": "italic"
+        //   }
+        // },
+        {
+          "scope": "entity.name.function.rust",
+          "settings": {
+            // "foreground": "#5bcfe6",
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": ["constant.language.boolean", "constant.numeric"],
+          "settings": {
+            "foreground": "#ef6b73"
+          }
+        },
+        // {
+        //   "scope": ["entity.name"],
+        //   "settings": {
+        //     "foreground": "#d7dce2"
+        //   }
+        // }
+      ]
+    }
+  },
   "editor.semanticTokenColorCustomizations": {
-  "enabled": true
-  }
+    "enabled": true,
+    "rules": {
+
+      // identifier // theme
+    },
+    "[Halcyon]": {
+      "rules": {
+        // "macro.library": "#c3a6ff",
+        "number": "#ef6b73",
+        "builtinType": "#ffcc66",
+        "macro": {
+          "foreground": "#ef6b73",
+          "fontStyle": "italic" // "italic bold underline"
+        },
+        "macroBang": {
+          "foreground": "#ef6b73",
+          "fontStyle": "italic" // "italic bold underline"
+        },
+        "interface": {
+          "foreground": "#ffcc66",
+          "fontStyle": "italic" // "italic bold underline"
+        },
+        "struct": "#c3a6ff",
+        // "struct.declaration": {
+        //   "foreground": "#ef6b73",
+        //   // "fontStyle": "italic"
+        // },
+        "function": {
+          "foreground": "#ef6b73",
+          "fontStyle": "italic" // "italic bold underline"
+        },
+        "method": {
+          "foreground": "#c3a6ff",
+          "fontStyle": "italic" // "italic bold underline"
+        },
+        "namespace": {
+          "foreground": "#d7dce2",
+          // "fontStyle": "italic" // "italic bold underline"
+        },
+        "namespace.crateRoot": {
+          "foreground": "#ef6b73",
+          "fontStyle": "italic" // "italic bold underline"
+        },
+        "property": {
+          "foreground": "#d7dce2",
+          // "fontStyle": "italic" // "italic bold underline"
+        },
+        "parameter": {
+          "foreground": "#d7dce2",
+          // "fontStyle": "italic" // "italic bold underline"
+        },
+        "attribute": {
+          "foreground": "#d7dce2",
+          // "fontStyle": "italic" // "italic bold underline"
+        },
+        "variable": {
+          "foreground": "#ffcc66",
+          // "fontStyle": "italic" // "italic bold underline"
+        },
+        "variable.static": {
+          "foreground": "#ffae57",
+          "fontStyle": "italic" // "italic bold underline"
+        },
+        "variable.mutable": {
+          "foreground": "#ffae57",
+          "fontStyle": "underline" // "italic bold underline"
+        },
+        "enum": {
+          "foreground": "#ef6b73",
+          // "fontStyle": "italic" // "italic bold underline"
+        },
+        "enumMember": {
+          "foreground": "#ef6b73",
+          // "fontStyle": "italic" // "italic bold underline"
+        },
+        "string": {
+          "foreground": "#d7dce2",
+          // "fontStyle": "italic" // "italic bold underline"
+        },
+
+      }
+    },
+  },
+  "editor.fontSize": 15,
+  "editor.semanticHighlighting.enabled": "configuredByTheme"
   // "rust-analyzer.checkOnSave.overrideCommand": ["cargo", "+nightly", "clippy"]
 }

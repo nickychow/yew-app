@@ -4,7 +4,7 @@ use yew::prelude::*;
 use yew_router::prelude::*;
 
 use crate::components::organisms::{Footer, Header};
-use crate::pages::{Hello, Home, PageNotFound, Pokemon, Wordle};
+use crate::pages::{Form, Hello, Home, PageNotFound, Pokemon, Wordle};
 
 #[derive(Routable, PartialEq, Clone, Debug)]
 pub enum Route {
@@ -14,6 +14,8 @@ pub enum Route {
     // Posts,
     // #[at("/authors/:id")]
     // Author { id: u32 },
+    #[at("/form")]
+    Form,
     #[at("/wordle")]
     Wordle,
     #[at("/hello")]
@@ -52,6 +54,9 @@ fn switch(routes: &Route) -> Html {
         }
         Route::Wordle => {
             html! { <Wordle /> }
+        }
+        Route::Form => {
+            html! { <Form /> }
         }
     }
 }
