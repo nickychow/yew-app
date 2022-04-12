@@ -67,7 +67,7 @@ pub fn custom_form(props: &Props) -> Html {
     };
 
     html! {
-        <form onsubmit={onsubmit} class="container mx-auto max-w-sm gap-4 py-4" >
+        <form onsubmit={onsubmit} class="container flex flex-col mx-auto max-w-sm gap-4 py-4 " >
             <LabelInput name="username" onchange={username_changed} />
             <LabelInput name="favorite_language" placeholder="Rust" onchange={language_changed} />
             <button class={button_classes} >{"Submit"}</button>

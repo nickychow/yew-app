@@ -56,7 +56,7 @@
           "foreground": "#ffcc66",
           "fontStyle": "italic" // "italic bold underline"
         },
-        "struct": "#c3a6ff",
+        "struct": "#d7dce2",
         // "struct.declaration": {
         //   "foreground": "#ef6b73",
         //   // "fontStyle": "italic"
@@ -90,7 +90,7 @@
           // "fontStyle": "italic" // "italic bold underline"
         },
         "variable": {
-          "foreground": "#ffcc66",
+          "foreground": "#d7dce2",
           // "fontStyle": "italic" // "italic bold underline"
         },
         "variable.static": {
@@ -110,10 +110,17 @@
           // "fontStyle": "italic" // "italic bold underline"
         },
         "string": {
-          "foreground": "#d7dce2",
+          "foreground": "#e2b93d",
           // "fontStyle": "italic" // "italic bold underline"
         },
-
+        "type": {
+          "foreground": "#ffcc66",
+          // "fontStyle": "italic" // "italic bold underline"
+        },
+        "typeAlias": {
+          "foreground": "#ffcc66",
+          // "fontStyle": "italic" // "italic bold underline"
+        },
       }
     },
   },

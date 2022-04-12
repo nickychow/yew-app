@@ -3,8 +3,8 @@ use yew::prelude::*;
 #[function_component(WordleBlock)]
 pub fn wordle_block() -> Html {
     html! {
-        <>
-            <div class="flex items-center justify-between max-w-xl py-4 mx-auto border-b border-gray-800 bg-gray-900">
+        <div class="bg-gray-900 flex flex-col gap-8">
+            <div class="flex items-center justify-between max-w-xl py-4 mx-auto border-b border-gray-800">
                 <div class="flex items-center flex-1 gap-4">
                     <a class="text-sm text-white hover:text-gray-300" href="https://twitter.com/itsmarkmead" target="_blank" rel="noopener noreferrer">{"Twitter"}</a>
                     <a class="text-sm text-white hover:text-gray-300" href="https://www.hyperui.dev/" target="_blank" rel="noopener noreferrer">{"HyperUI"}</a>
@@ -18,7 +18,7 @@ pub fn wordle_block() -> Html {
                     </div>
                 </div>
             </div>
-            <div class="space-y-1 bg-gray-900">
+            <div class="space-y-1 ">
                 <div class="flex gap-1 sm:justify-center">
                     <div class="w-10 h-10 bg-gray-700 rounded-sm shrink-0"></div>
                     <div class="w-10 h-10 bg-gray-700 rounded-sm shrink-0"></div>
@@ -55,11 +55,11 @@ pub fn wordle_block() -> Html {
                     <div class="w-10 h-10 bg-gray-700 rounded-sm shrink-0"></div>
                 </div>
             </div>
-            <div class="flex justify-center gap-4 bg-gray-900">
+            <div class="flex justify-center gap-4 ">
                 <button class="p-3 text-sm text-white bg-gray-800 rounded-lg hover:text-gray-300">{"New Class Name"}</button>
                 <button class="p-3 text-sm text-white bg-gray-800 rounded-lg hover:text-gray-300">{"Play With a Friend"}</button>
             </div>
-            <div class="inset-x-0 py-8 bg-gray-900 text-white">
+            <div class="inset-x-0 py-8  text-white">
                 <div class="max-w-xl px-4 mx-auto">
                     <form class="pt-8 mt-8 border-t border-gray-800">
                         <fieldset class="flex gap-4 disabled:opacity-50 disabled:pointer-events-none">
@@ -72,6 +72,6 @@ pub fn wordle_block() -> Html {
                     </form>
                 </div>
             </div>
-        </>
+        </div>
     }
 }
